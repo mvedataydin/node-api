@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan')
-
+const bodyParser = require('body-parser')
 //import mongoose
 const mongoose = require('mongoose');
 //load env variables
@@ -28,7 +28,7 @@ const postRoutes = require('./routes/post')
 
 //use middleware
 app.use(morgan("dev"));
-
+app.use(bodyParser.json());
 app.use("/", postRoutes)
 
 const port = 8080
